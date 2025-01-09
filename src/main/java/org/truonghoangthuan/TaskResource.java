@@ -1,6 +1,7 @@
 package org.truonghoangthuan;
 
 import java.util.List;
+import java.time.LocalDateTime;
 
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -31,6 +32,8 @@ public class TaskResource {
     @POST
     @Transactional
     public Task createTask(Task task) {
+        task.setCreationDate(LocalDateTime.now());
+        task.setLastChangeDate(LocalDateTime.now());
         taskRepository.persist(task);
         return task;
     }
@@ -46,6 +49,7 @@ public class TaskResource {
         existingTask.setName(task.getName());
         existingTask.setAssignee(task.getAssignee());
         existingTask.setStatus(task.getStatus());
+        existingTask.setLastChangeDate(LocalDateTime.now());
         taskRepository.persist(existingTask);
         return existingTask;
     }
