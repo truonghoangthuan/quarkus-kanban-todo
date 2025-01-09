@@ -56,6 +56,7 @@ public class TaskResource {
 
     @DELETE
     @Path("{id}")
+    @Transactional
     public void deleteTask(@PathParam("id") Long id) {
         Task task = taskRepository.findById(id);
         if (task == null) {
