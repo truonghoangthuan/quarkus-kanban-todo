@@ -2,6 +2,8 @@ FROM openjdk:21
 
 ENV LANGUAGE='en_US:en'
 
+CMD ./mvnw package
+
 COPY target/quarkus-app/lib/ /deployments/lib/
 COPY target/quarkus-app/*.jar /deployments/
 COPY target/quarkus-app/app/ /deployments/app/
