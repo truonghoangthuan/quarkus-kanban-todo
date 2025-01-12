@@ -1,7 +1,7 @@
 services:
   - type: web
     name: quarkus-kanban-todo
-    env: docker
+    runtime: docker
     buildCommand: ./mvnw package -Dmaven.test.skip=true
     startCommand: java $JAVA_OPTS -jar target/quarkus-app/quarkus-run.jar
     envVars:
