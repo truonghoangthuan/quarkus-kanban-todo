@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: quarkus-todo
+    name: quarkus-kanban-todo
     env: docker
     buildCommand: ./mvnw package -Dmaven.test.skip=true
     startCommand: java $JAVA_OPTS -jar target/quarkus-app/quarkus-run.jar
@@ -9,18 +9,18 @@ services:
         value: 8080
       - key: POSTGRES_URL
         fromDatabase:
-          name: todo-db
+          name: kanban-todo
           property: connectionString
       - key: POSTGRES_USER
         fromDatabase:
-          name: todo-db
+          name: kanban-todo
           property: user
       - key: POSTGRES_PASSWORD
         fromDatabase:
-          name: todo-db
+          name: kanban-todo
           property: password
 
 databases:
-  - name: todo-db
+  - name: kanban-todo
     databaseName: todo
     plan: free
