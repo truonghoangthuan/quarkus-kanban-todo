@@ -12,9 +12,6 @@ COPY pom.xml .
 # Copy the source code
 COPY src src
 
-# Make the Maven wrapper executable
-RUN chmod +x mvnw
-
 # Build the application
 RUN ./mvnw package -DskipTests
 
