@@ -8,6 +8,8 @@ WORKDIR /workspace/app
 COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
+COPY .mvn/wrapper/maven-wrapper.jar .
+COPY .mvn/wrapper/maven-wrapper.properties .
 
 # Copy the source code
 COPY src src
