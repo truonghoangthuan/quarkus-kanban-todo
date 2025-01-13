@@ -5,7 +5,6 @@ services:
     buildCommand: |
       ./mvnw package -DskipTests
       docker build -t quarkus-todo .
-    startCommand: java $JAVA_OPTS -jar target/quarkus-app/quarkus-run.jar
     envVars:
       - key: PORT
         value: 8080
