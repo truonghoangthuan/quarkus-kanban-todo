@@ -1,10 +1,8 @@
 services:
   - type: web
     name: quarkus-kanban-todo
-    runtime: docker
-    buildCommand: |
-      ./mvnw package -DskipTests
-      docker build -t quarkus-todo .
+    runtime: java
+    buildCommand: ./mvnw package -DskipTests
     startCommand: java $JAVA_OPTS -jar target/quarkus-app/quarkus-run.jar
     envVars:
       - key: PORT
