@@ -2,9 +2,7 @@ services:
   - type: web
     name: quarkus-kanban-todo
     runtime: docker
-    buildCommand: |
-      ./mvnw package -DskipTests
-      docker build -t quarkus-todo .
+    buildCommand: docker build -t quarkus-kanban-todo .
     envVars:
       - key: PORT
         value: 8080
